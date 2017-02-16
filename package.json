@@ -11,6 +11,7 @@
   "author": "",
   "description": "",
   "dependencies": {
+    "angular-ui-router": "1.0.0-beta.3",
     "body-parser": "^1.15.2",
     "cookie-parser": "^1.4.3",
     "express": "^4.14.0",
@@ -18,11 +19,11 @@
     "pg": "^6.1.0"
   },
   "devDependencies": {
-    "chai": "^3.5.0",
-    "mocha": "^3.2.0",
-    "supertest": "^2.0.1",
     "angular": "^1.6.0",
     "angular-moment": "^1.0.1",
-    "jquery": "^3.1.1"
+    "chai": "^3.5.0",
+    "jquery": "^3.1.1",
+    "mocha": "^3.2.0",
+    "supertest": "^2.0.1"
   }
 }

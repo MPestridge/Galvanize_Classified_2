@@ -7,21 +7,33 @@
       templateUrl: '/js/posts/classifieds-list.template.html'
     });
 
-    function controller() {
-      const vm = this
-      vm.posts = []
-      vm.postSubmission = postSubmission
+  controller.inject =['$http']
 
+  function controller($http) {
+    const vm = this
+    vm.$onInit = onInit
+    vm.posts = []
+    vm.postSubmission = postSubmission
 
-    vm.post = {}
+  vm.post = {}
 
-    function postSubmission(post) {
-      vm.posts.push(vm.post)
-      vm.postForm.$setPristine()
-      vm.postForm.$setUntouched()
-      delete vm.post
-    }
-    }
+  function postSubmission(post) {
+    vm.posts.push(vm.post)
+    vm.postForm.$setPristine()
+    vm.postForm.$setUntouched()
+    $http.post('/classifieds', vm.post).then(function (response) {
+      console.log(vm.post);
+      delete vm.post;
+    })
+  }
+
+  function onInit() {
+    $http.get('/classifieds').then(function (response) {
+      vm.posts = response.data;
+    })
+  }
+
+  }
 })();
 
 //TODO:
