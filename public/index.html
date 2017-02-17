@@ -1,16 +1,17 @@
 <!doctype html>
 <html ng-app="app">
 <link rel="stylesheet" href="css/app.css">
-<base href="/">
   <head>
     <title>Q3 Classifieds</title>
+    <base href="/">
   </head>
   <body>
-    <classifieds-list></classifieds-list>
     <ui-view></ui-view>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js" ></script>
     <script src="https://unpkg.com/angular-ui-router@1.0.0-beta.3/release/angular-ui-router.js"></script>
     <script src="/js/app/app.module.js" ></script>
-    <script src="js/posts/classifieds-list.component.js"></script>
+    <script src="/js/app/app.config.js"></script>
+    <script src="/js/posts/classifieds-list.component.js"></script>
+    <script src="js/edits/classifieds-edit-form.component.js"></script>
   </body>
 </html>

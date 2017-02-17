@@ -7,19 +7,18 @@
 
   function config($stateProvider, $urlRouterProvider, $locationProvider) {
 
-    // this line is optional
-    // $locationProvider.html5Mode(true)
+    $locationProvider.html5Mode(true)
 
     $stateProvider
       .state({
         name: 'home',
         url: '/',
-        component: 'app',
+        component: 'classifiedsList',
       })
-      .state({
-       name: 'home.posts',
-       url: '/posts',
-       component: 'app',
+     .state({
+       name: 'editForm',
+       url: '/:id',
+       component: 'editForm'
      })
   }
 

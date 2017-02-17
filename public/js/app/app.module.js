@@ -1,8 +1,5 @@
 'use strict';
 
 (function() {
-  // Create the 'app' module, inject the ngMessages module.
-  angular.module('app', ['ngMessages']);
+    angular.module('app', ['ui.router']);
 })();
-
-// 'ui-router'

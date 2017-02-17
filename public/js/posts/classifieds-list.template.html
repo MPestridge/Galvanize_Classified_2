@@ -13,7 +13,7 @@
       <a href="#">Price</a>
     </div>
   </div>
-  <form name="$ctrl.postForm" ng-submit="$ctrl.postSubmission()"
+  <form name="$ctrl.postForm" ng-submit="$ctrl.postSubmission()">
     <label>Title:</label>
     <input id="title" name="title" ng-model="$ctrl.post.title" type="text" placeholder="Enter a title here" required>
     <label>Description:</label>
@@ -27,9 +27,9 @@
   <div ng-repeat="post in $ctrl.posts">
     <h4>Title: </h4><p>{{post.title}}</p>
     <h4>Description: </h4><p>{{post.description}}</p>
-    <h4>Price: </h4><p>{{post.price}}</p>
+    <h4>Price: </h4><p>${{post.price}}</p>
     <h4>Item Image: </h4><img ng-src='{{post.item_image}}' alt="Post Image"/>
-    <button type="submit" ng-click="$ctrl.postEdit">Edit</button>
-    <button type="submit" ng-click="$ctrl.postDelete">Delete</button>
+    <button ui-sref="editForm({id:post.id})">Edit</button>
+    <button type="submit" >Delete</button>
   </div>
 </div>

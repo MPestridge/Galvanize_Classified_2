@@ -1,7 +1,7 @@
 'use strict';
 
 (() => {
-  angular.module('app', [])
+  angular.module('app')
     .component('classifiedsList', {
       controller: controller,
       templateUrl: '/js/posts/classifieds-list.template.html'
@@ -22,9 +22,12 @@
     vm.postForm.$setPristine()
     vm.postForm.$setUntouched()
     $http.post('/classifieds', vm.post).then(function (response) {
-      console.log(vm.post);
       delete vm.post;
     })
+  }
+
+  function postEdit(post) {
+    // $http.patch(`/classifieds/${}`)
   }
 
   function onInit() {
@@ -37,8 +40,7 @@
 })();
 
 //TODO:
-// Display all of the ads
-// Post a new ad
+// Change filter to search bar
 // Edit existing ads
 // Delete an ad
 // Filter ads (titles and descriptions)
