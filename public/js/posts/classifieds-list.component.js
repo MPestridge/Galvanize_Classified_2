@@ -7,7 +7,7 @@
       templateUrl: '/js/posts/classifieds-list.template.html'
     });
 
-  controller.inject =['$http']
+  controller.inject = ['$http']
 
   function controller($http) {
     const vm = this
@@ -15,26 +15,22 @@
     vm.posts = []
     vm.postSubmission = postSubmission
 
-  vm.post = {}
+    vm.post = {}
 
-  function postSubmission(post) {
-    vm.posts.push(vm.post)
-    vm.postForm.$setPristine()
-    vm.postForm.$setUntouched()
-    $http.post('/classifieds', vm.post).then(function (response) {
-      delete vm.post;
-    })
-  }
+    function postSubmission(post) {
+      vm.posts.push(vm.post)
+      vm.postForm.$setPristine()
+      vm.postForm.$setUntouched()
+      $http.post('/classifieds', vm.post).then((response) => {
+        delete vm.post;
+      })
+    }
 
-  function postEdit(post) {
-    // $http.patch(`/classifieds/${}`)
-  }
-
-  function onInit() {
-    $http.get('/classifieds').then(function (response) {
-      vm.posts = response.data;
-    })
-  }
+    function onInit() {
+      $http.get('/classifieds').then((response) => {
+        vm.posts = response.data;
+      })
+    }
 
   }
 })();

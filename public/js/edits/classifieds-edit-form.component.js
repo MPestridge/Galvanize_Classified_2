@@ -2,8 +2,30 @@
 
 (() => {
   angular.module('app')
-  .component('editForm', {
-    templateUrl: '/js/edits/classifieds-edit-form.template.html'
-  });
+    .component('editForm', {
+      controller: controller,
+      templateUrl: '/js/edits/classifieds-edit-form.template.html'
+    });
+
+  controller.inject = ['$stateParams']
+  controller.inject = ['$http']
+  controller.inject = ['$state']
+
+  function controller($stateParams, $http, $state) {
+    const vm = this
+    vm.postEdit = postEdit
+
+    let stateParamsId = $stateParams.id
+    $http.get(`/classifieds/${stateParamsId}`).then((response) => {
+      vm.edit = response.data
+    })
+
+    function postEdit() {
+      $http.patch(`/classifieds/${stateParamsId}`, vm.edit).then((response) => {
+        console.log(response.data)
+      })
+      $state.go('home')
+    }
+  }
 
 })();

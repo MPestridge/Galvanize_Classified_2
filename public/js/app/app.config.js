@@ -15,11 +15,11 @@
         url: '/',
         component: 'classifiedsList',
       })
-     .state({
-       name: 'editForm',
-       url: '/:id',
-       component: 'editForm'
-     })
+      .state({
+        name: 'editForm',
+        url: '/:id',
+        component: 'editForm'
+      })
   }
 
 }());
