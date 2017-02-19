@@ -16,6 +16,11 @@
         component: 'classifiedsList',
       })
       .state({
+        name: 'postForm',
+        url: '/newpost',
+        component: 'postForm'
+      })
+      .state({
         name: 'editForm',
         url: '/:id',
         component: 'editForm'

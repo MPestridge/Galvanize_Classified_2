@@ -7,7 +7,7 @@ const router = express.Router();
 
 router.get('/', (req, res, next) => {
   knex('classifieds')
-    .select('id', 'title', 'description', 'price', 'item_image')
+    .select('*')
     .then((data) => {
       res.send(data);
     })
@@ -19,7 +19,7 @@ router.get('/', (req, res, next) => {
 router.get('/:id', (req, res, next) => {
   knex('classifieds')
     .where('id', req.params.id)
-    .select('id', 'title', 'description', 'price', 'item_image')
+    .select('*')
     .first()
     .then((data) => {
       res.send(data);
@@ -33,7 +33,7 @@ router.post('/', (req, res, next) => {
   const {title, description, price, item_image} = req.body;
   const insertClassified = {title, description, price, item_image};
   knex('classifieds')
-    .insert(insertClassified, ['id', 'title', 'description', 'price', 'item_image'])
+    .insert(insertClassified, ['id', 'title', 'description', 'price', 'item_image', 'created_at'])
     .then((data) => {
       res.send(data[0]);
     })

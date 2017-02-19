@@ -7,9 +7,7 @@
       templateUrl: '/js/edits/classifieds-edit-form.template.html'
     });
 
-  controller.inject = ['$stateParams']
-  controller.inject = ['$http']
-  controller.inject = ['$state']
+  controller.inject = ['$stateParams', '$http', '$state']
 
   function controller($stateParams, $http, $state) {
     const vm = this
