@@ -14,12 +14,13 @@
     vm.$onInit = onInit
     vm.posts = []
     vm.postDelete = postDelete
+    vm.valueFinder = valueFinder
 
     function onInit() {
       $http.get('/classifieds').then((response) => {
         vm.posts = response.data;
-        console.log(response.data);
       })
+      vm.currentValue = ""
     }
 
     function postDelete(id) {
@@ -30,10 +31,12 @@
       })
     }
 
+    vm.sortValue = ['None', 'Created At', 'Price']
+
+    function valueFinder(value) {
+      vm.currentName = value
+      vm.currentValue = value.toLowerCase().replace(/ /g,"_")
+    }
+
   }
 })();
-
-//TODO:
-// Change filter to search bar
-// Sort ads based on posting date and price
-// Add post time
